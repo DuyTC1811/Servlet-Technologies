@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.example.springsecurity.dto.*, com.example.springsecurity.models  # Scan folder
+  mapper-locations: /mybatis/*/*.xml
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  security:
+    jwtSecret: DUY-TC
+    jwtExpirationMs: 86400000
+  datasource:
+    hikari:
+      auto-commit: true
+      idle-timeout: 20000
+      maximum-pool-size: 2
+      max-lifetime: 1800000
+      connection-timeout: 20000
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+      pool-name: Slave-DB
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: duytc
+
+logging:
+  level:
+    com.example.springmybatis.mapper.*: TRACE
+
