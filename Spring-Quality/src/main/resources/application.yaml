@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Spring-Quality
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/quality?useSSL=false
+    username: root
+    password:

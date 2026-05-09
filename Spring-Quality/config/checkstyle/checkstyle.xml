@@ -1,0 +1,56 @@
+<!DOCTYPE module PUBLIC
+  "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+  "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+
+  <module name="LineLength">
+    <property name="max" value="120"/>
+    <property name="severity" value="error"/>
+    <message
+      key="maxLineLen"
+      value="Dòng code quá dài. Tối đa cho phép là {0} ký tự, hiện tại là {1} ký tự. Hãy tách dòng hoặc refactor lại code."/>
+  </module>
+
+  <module name="TreeWalker">
+
+    <module name="AvoidStarImport">
+      <property name="severity" value="error"/>
+      <message
+        key="import.avoidStar"
+        value="Không được sử dụng wildcard import. Hãy import rõ từng class thay vì dùng import *."/>
+    </module>
+
+    <module name="UnusedImports">
+      <property name="severity" value="error"/>
+      <message
+        key="import.unused"
+        value="Import này không được sử dụng. Hãy xoá import thừa để code sạch hơn."/>
+    </module>
+
+    <module name="MethodName">
+      <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+      <property name="severity" value="error"/>
+      <message
+        key="name.invalidPattern"
+        value="Tên method không đúng chuẩn camelCase. Tên hiện tại là ''{0}'', pattern yêu cầu là ''{1}''."/>
+    </module>
+
+    <module name="TypeName">
+      <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+      <property name="severity" value="error"/>
+      <message
+        key="name.invalidPattern"
+        value="Tên class/interface không đúng chuẩn PascalCase. Tên hiện tại là ''{0}''. Tên class phải bắt đầu bằng chữ hoa và viết theo PascalCase, ví dụ: DemoController."/>
+    </module>
+
+    <module name="ParameterNumber">
+      <property name="max" value="5"/>
+      <property name="severity" value="warning"/>
+      <message
+        key="maxParam"
+        value="Method có quá nhiều parameter. Tối đa cho phép là {0}. Hãy cân nhắc gom parameter vào request object/DTO."/>
+    </module>
+
+  </module>
+</module>
